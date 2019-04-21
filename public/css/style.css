@@ -1,0 +1,81 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-image: url("image/aribnb.jpg");
+    background-size: cover;
+}
+.login-1{
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+h1{
+    color: white;
+    border-bottom: 5px solid #4caf50;
+    padding-left: 10px;
+}
+.h1-1{
+    width: 45%;
+}
+.text-1{
+    margin-top: 10px;
+    border-bottom: 1px solid green;
+}
+.text-1 input{
+    border: none;
+    background: none;
+    font-size: 18px;
+    outline: none;
+    padding-left: 8px;
+    color: white;
+}
+.btn{
+    width: 100%;
+    border: 2px solid #4caf50;
+    margin-top: 10px;
+}
+.btn input:hover{
+    background: dimgray;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.btn input{
+    text-align: center;
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 18px;
+    padding: 5px;
+    color: white;
+}
+.btn-2{
+    width: 98%;
+    border: 2px solid #4caf50;
+    margin-top: 10px;
+    text-align: center;
+    padding: 3px;
+}
+.btn-2 a{
+    text-align: center;
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 13px;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+}
+.all{
+    width: 500px;
+    background: rgb(0 , 0 , 0 , 0.5);
+    height: 500px;
+    position: absolute;
+    border-radius: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
