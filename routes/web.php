@@ -32,6 +32,11 @@ Route::group(['prefix' => 'login'], function (){
    route::post('getRegister', 'GetloginController@postRegister')->name('postRegister');
 });
 
+// login facebook api
+Route::get('facebook/redirect', 'Auth\SocialController@redirectToProvider');
+Route::get('facebook/callback', 'Auth\SocialController@handleProviderCallback');
+
+// logout
 Route::get('logout',['as'=>'logout', 'uses'=>'GetloginController@logOut']);
 
 Auth::routes();

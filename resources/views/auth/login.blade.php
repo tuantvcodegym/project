@@ -61,6 +61,7 @@
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
+                                    <a href="{{ url('facebook/redirect') }}">Login facebook</a>
                                 @endif
                             </div>
                         </div>

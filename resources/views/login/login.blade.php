@@ -37,7 +37,6 @@
         </form>
         <div class="btn-2">
             <a href="{{route('getRegister')}}">Register</a>
-            <a href="#">Login facebook</a>
         </div>
     </div>
 </div>
