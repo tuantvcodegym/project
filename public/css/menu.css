@@ -1,0 +1,32 @@
+.menu{
+    width: 100%;
+    height: 50px;
+    background: antiquewhite;
+    margin: auto;
+}
+.menu ul{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+.menu ul li{
+    float: left;
+    width: 165px;
+    text-align: center;
+    line-height: 50px;
+    list-style: none;
+    position: relative;
+}
+.menu ul li ul{
+    display: none;
+}
+.menu ul li ul li{
+    background: antiquewhite;
+}
+.menu ul li ul li:hover{
+    background: darkseagreen;
+}
+.menu ul li:hover ul{
+    display: block;
+    cursor: pointer;
+}

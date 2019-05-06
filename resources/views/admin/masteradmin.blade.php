@@ -57,9 +57,11 @@
     <div class="row all">
         <div class="col-3">
             <div class="nav flex-column nav-pills">
-                <a class="nav-link active"><i class="fas fa-home"></i>Home</a>
+                <a class="nav-link active" href="{{ route('admin.list') }}"><i class="fas fa-home"></i>Home</a>
                 <a class="nav-link active"><i class="fas fa-user"></i>Profile</a>
                 <a class="nav-link active" href="{{route('admin.store')}}"><i class="fas fa-plus"></i>Create</a>
+                <a class="nav-link active" href="{{route('category.store')}}"><i class="fas fa-plus"></i>Create Category</a>
+                <a class="nav-link active" href="{{route('upload.file')}}"><i class="fas fa-plus"></i>Create Images</a>
                 <a class="nav-link active"><i class="fas fa-cog"></i>Settings</a>
             </div>
         </div>

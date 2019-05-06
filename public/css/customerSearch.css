@@ -1,0 +1,54 @@
+.form{
+    width: 482px;
+    height: auto;
+    background: white;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.form-2{
+    width: 444px;
+    height: auto;
+    margin: 16px;
+}
+.button{
+    margin-top: 15px;
+}
+.button button{
+    width: 97%;
+    padding: 10px;
+    background: #ff5d67;
+    font-weight: bold;
+    color: white;
+    font-size: 17px;
+    border-radius: 8px;
+    outline: none;
+    margin-bottom: 15px;
+}
+.form-2 h3{
+    font-size: 32px;
+    text-align: left;
+    margin: 0px;
+    font-weight: bold;
+}
+.form-2 p{
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.form-3 p{
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 0;
+}
+.input-1 p{
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 0;
+}
+.input-2{
+    width: 431px;
+}
+.date{
+    width: 205px;
+}

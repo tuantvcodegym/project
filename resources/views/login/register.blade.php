@@ -30,6 +30,12 @@
                 <input type="email" name="email" placeholder="email" required>
             </div>
             <div class="text-1">
+                <input type="text" name="phone" placeholder="phone" required>
+            </div>
+            <div class="text-1">
+                <input type="text" name="address" placeholder="Address" required>
+            </div>
+            <div class="text-1">
                 <input type="password" name="password" placeholder="password" required>
             </div>
             <div class="btn">

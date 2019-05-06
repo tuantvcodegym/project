@@ -23,14 +23,23 @@
                 <div class="row">
                     <div class="list">
                         <ul>
-                            <li>Home</li>
-                            <li>Product</li>
-                            <li>About us</li>
-                            <li>Special</li>
-                            <li>Testimonials</li>
-                            <li>Blog</li>
-                            <li>Contact</li>
-                            <li><a href="{{route('getLogin')}}" class="btn btn-primary"><i class="fas fa-lock"></i>Log in</a></li>
+                            <li><a href="{{ route('index') }}">HOME</a></li>
+                            <li>Categories
+                                <ul>
+                                    @foreach($cate as $key=>$value)
+                                        <li><a href="{{ route('getcategories', $value->id) }}">{{ $value->name }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                            <li><a href="#">About us</a></li>
+                            <li><a href="#">Special</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                            @if(Auth::check())
+                                <li><a href="{{ route('getProfile', Auth::user()->id)}}">Name: {{ Auth::user()->name }}</a></li>
+                                <li><a href="{{ url('logout') }}">LogOut</a></li>
+                            @else
+                                <li><a href="{{route('getLogin')}}" class="btn btn-primary"><i class="fas fa-lock"></i>Log in</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -47,8 +56,8 @@
         <div class="inclu">
             @include('home.slide')
         </div>
-        <div class="banquyen">
-            <small>@ website được lấy ý tưởng từ https://colorlib.com</small>
+        <div class="customerSearch">
+            @include('home.customerSearch')
         </div>
     </div>
     <div class="all-1">
@@ -70,30 +79,72 @@
         <div class="data">
             <div class="container">
                 <div class="row">
+                    <div class="col-md-12">
+                        <h3>New Products</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-group" method="post" action="{{route('search')}}">
+                            @csrf
+                            <input type="text" name="search">
+                            <input type="submit">
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
                     <!-- sau này sẽ foreach data tại đây -->
                     @foreach($product as $key=>$value)
+                        @if($value->status != 'true')
                         <div class="col-md-4">
                             <div class="data-1">
                                 <div class="image">
-                                    <img src="{{ asset("storage/$value->image") }}" alt="">
+                                    <img src="{{ asset("storage/$value->image") }}" alt="" width="320px" height="213px">
                                 </div>
                                 <h5>{{ $value->name }}</h5>
-                                <p>Gia san pham</p>
+                                <p>Price {{ $value->price }} $</p>
                                 <div class="row">
                                     <div class="col-md-2">
                                     </div>
                                     <div class="col-md-8">
                                         <a class="btn btn-primary" href="#">Cart</a>
-                                        <a class="btn btn-primary" href="#">Detail</a>
+                                        <a class="btn btn-primary" href="{{ route('product.detail', $value->id) }}">Detail</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                     @endforeach
                     <!-- kết thúc foreach tại đây -->
                 </div>
                 <div class="paginate">
                     {{ $product->links() }}
+                </div>
+                <!-- Danh sach san pham thero the loai -->
+                <h3>Product are leaseding</h3>
+                <div class="row"><!-- sau này sẽ foreach data The laoi tại đây -->
+                    @foreach($product as $key=>$value)
+                        @if($value->status == 'true')
+                        <div class="col-md-4">
+                            <div class="data-1">
+                                <div class="image">
+                                    <img src="{{ asset("storage/$value->image") }}" alt="" width="320px" height="213px">
+                                </div>
+                                <h5>{{ $value->name }}</h5>
+                                <p>Price {{ $value->price }} $</p>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <a class="btn btn-primary" href="#">Cart</a>
+                                        <a class="btn btn-primary" href="{{ route('product.detail', $value->id) }}">Detail</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                @endforeach
+                <!-- kết thúc foreach tại đây -->
                 </div>
             </div>
         </div>
