@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-image: url("image/aribnb.jpg");
+    background-image: url("https://scontent.fhan2-1.fna.fbcdn.net/v/t1.0-9/60091722_846742832327781_6889935529211592704_o.jpg?_nc_cat=101&_nc_oc=AQmhiJToShXY9F3KFUCEy39TCQfBqG7-H3vQQGlwP1n5DSLXi_46X_fMxoYAwAZJo-s&_nc_ht=scontent.fhan2-1.fna&oh=53c6d6b6eac251ee2b25a7de408b5459&oe=5D7201CB");
     background-size: cover;
 }
 .login-1{
