@@ -31,11 +31,22 @@
                                     @endforeach
                                 </ul>
                             </li>
-                            <li>About us</li>
-                            <li>Special</li>
-                            <li>Testimonials</li>
-                            <li>Blog</li>
-                            <li><a href="{{route('getLogin')}}" class="btn btn-primary"><i class="fas fa-lock"></i>Log in</a></li>
+                            <li><a href="{{ route('index') }}" class="a">Product</a></li>
+                            <li><a href="{{ route('home.about') }}" title="Về chúng tôi">About us</a></li>
+                            @if(Auth::check())
+                                <li><a>Profile</a>
+                                    <ul>
+                                        <li><a href="{{ route('getProfile', Auth::user()->id) }}">Profile</a></li>
+                                        <li><a href="{{ route('getPass', Auth::user()->id) }}">Update Password</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{{ route('getProfile', Auth::user()->id)}}">Name: {{ Auth::user()->name }}</a></li>
+                                <li><a href="{{ url('logout') }}"><i class="fas fa-sign-out-alt" style="color: #38c172; padding-right: 5px;"></i>LogOut</a></li>
+                            @else
+                                <li><a href="#" class="a">Blog</a></li>
+                                <li><a href="#" onclick="alert('No Update')">Testimonials</a></li>
+                                <li><a href="{{route('getLogin')}}" class="btn btn-primary"><i class="fas fa-lock"></i>Log in</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>

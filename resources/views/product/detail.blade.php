@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -16,16 +16,6 @@
     <div class="menu">
         <ul>
             <li><a href="{{ route('index') }}">HOME</a></li>
-            <li>
-                <a href="#">Kinh the</a>
-                <ul>
-                    <li>Kinh te chinh tri</li>
-                </ul>
-            </li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Special</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">Blog</a></li>
         </ul>
     </div>
     <h1>Thong tin chi tiet</h1>
@@ -85,15 +75,37 @@
             </div>
         </div>
     </div>
-    <hr>
     <div class="row">
         <div class="col-md-12">
-            <p>Viet binh luan ... <i class="far fa-comment-dots" style="color: #3495e3"></i></p>
-            <textarea class="form-control" rows="3"></textarea>
-            <br>
-            <input type="submit" href="#" class="btn btn-primary" value="Comment">
+
         </div>
     </div>
+    <!-- Hien thi phan comment cua nguoi dung -->
+    <div class="row">
+        <div class="col-md-12">
+            <div style="margin-top: 20px ; border-top: 1px solid coral; padding-top: 10px; overflow: scroll; height: 200px">
+                @foreach($comment as $value)
+                    <span style="font-weight: bold">{{ $value->name }} : <small>{{ $value->content }}</small></span>
+                    <br>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- Hien thi phan comment cua nguoi dung -->
+    @if(Auth::check())
+    <div class="row">
+        <div class="col-md-12">
+            <form method="get" action="{{ route('comment', $product->id) }}">
+                @csrf
+                <p>Viet binh luan ... <i class="far fa-comment-dots" style="color: #3495e3"></i></p>
+                <textarea class="form-control" rows="3" name="content" required></textarea>
+                <br>
+                <input type="submit" href="#" class="btn btn-primary" value="Comment">
+            </form>
+        </div>
+    </div>
+    @endif
     <br>
     <div class="menu">
         <ul>

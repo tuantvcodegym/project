@@ -26,10 +26,24 @@
         </ul>
     </div>
     <h4>Cam on ban da su dung dich vu cua chung toi :</h4>
-    <h5><i class="far fa-address-card" style="margin-right: 5px; color: #3495e3"></i>Profile :</h5>
     <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4" style="border-top: 1px solid grey; background-color: #d3d9df">
+        <div class="col-md-6" style="border-top: 1px solid #d3d9df; padding-top: 20px; position: relative; border-right: 1px solid #d3d9df">
+            <div class="row">
+                <div class="col-md-8">
+                    <h5><i class="far fa-address-card" style="margin-right: 5px; color: #3495e3"></i>Profile :</h5>
+                    <p><i class="fas fa-user" style="margin-right: 5px; color: #3495e3"></i>  First name: {{ $user->name }}</p>
+                    <p><i class="fas fa-envelope" style="margin-right: 5px; color: #3495e3"></i> Email: {{ $user->email }}</p>
+                    <p><i class="fas fa-phone-square" style="margin-right: 5px; color: #3495e3"></i> Phone : {{ $user->phone }}</p>
+                    <p><i class="fas fa-map-marked-alt" style="margin-right: 5px; color: #3495e3"></i> Address: {{ $user->address }}</p>
+                    <p><i class="fas fa-history" style="margin-right: 5px; color: #3495e3"></i> Register day : {{ $user->created_at }}</p>
+                </div>
+                <div class="col-md-4">
+                    <a href="{{ route('profile', $user->id) }}" class="btn btn-primary">Update Profile</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" style="border-top: 1px solid grey; padding-top: 20px">
+            <h5 style="font-weight: bold">Rental History</h5>
             @foreach($customer as $key=> $value)
                 <p style="font-weight: bold">Name : {{ $value->name }}</p>
                 <p><i class="fas fa-envelope" style="margin-right: 5px; color: #3495e3"></i>Email: {{ $value->email }}</p>
@@ -43,6 +57,7 @@
                 <p><i class="far fa-check-circle" style="margin-right: 5px; color: #3495e3"></i>check-out day: {{ $value->check_out }}</p>
                 <p><i class="fas fa-sort-numeric-up" style="margin-right: 5px; color: #3495e3"></i>Total number day: {{ floor((abs(strtotime($value->check_out) - strtotime($value->check_in)))/(60*60*24)) }} Day</p>
                 <p><i class="fas fa-donate" style="margin-right: 5px; color: #3495e3"></i>Total Payment: {{ $value->price * (floor((abs(strtotime($value->check_out) - strtotime($value->check_in)))/(60*60*24)))}} $</p>
+                <p><i class="fas fa-history" style="margin-right: 5px; color: #3495e3"></i>Rental History : {{ $value->updated_at }}</p>
             @if(floor((abs(strtotime($value->check_out) - strtotime($value->check_in)))/(60*60*24)) != 1)
                 <button class="btn btn-primary" onclick="return confirm('cảm ơn bạn đã sử dụng dịch vụ')"><i class="fas fa-ban" style="margin-right: 5px; color: #ced4da"></i><a href="{{ route("cancelBathroom", $value->product_id) }}" style="color: white">Hủy</a></button>
                 @else
@@ -51,12 +66,10 @@
                 <hr>
             @endforeach
         </div>
-        <div class="col-md-4"></div>
     </div>
     <div class="menu">
         <ul>
             <li><button class="btn btn-primary" onclick="window.history.go(-1); return false;"><-- Back</button></li>
-            <li><button class="btn btn-primary">History</button></li>
         </ul>
     </div>
 </div>

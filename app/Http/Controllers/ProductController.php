@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Comment;
 use App\Customer;
 use App\Image;
 use App\Product;
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
     public function getAll(){
-        $product = Product::paginate('6');
+        $product = Product::paginate('7');
         $cate = Category::all();;
         return view('home.index', compact('product', 'cate'));
     }
@@ -27,8 +28,10 @@ class ProductController extends Controller
     }
     public function detail($id){
         $product = Product::find($id);
+        //hien thi comment trong trang detail
+        $comment = Comment::where('product_id',$id)->get();
         $images = Image::where('product_id', $id)->paginate('4');
-        return view('product.detail', compact('product', 'images'));
+        return view('product.detail', compact('product', 'images', 'comment'));
     }
     public function searchCustomer(Request $request){
         $product = Product::where([['address', 'like', '%'.$request->input('address').'%'], ['bathroom', $request->input('bathroom')], ['bedroom', $request->input('bedroom')],['price','<=', $request->input('price-2')],['price','>=', $request->input('price')]])->get();

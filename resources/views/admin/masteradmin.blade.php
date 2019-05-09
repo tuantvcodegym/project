@@ -62,6 +62,7 @@
                 <a class="nav-link active" href="{{route('admin.store')}}"><i class="fas fa-plus"></i>Create</a>
                 <a class="nav-link active" href="{{route('category.store')}}"><i class="fas fa-plus"></i>Create Category</a>
                 <a class="nav-link active" href="{{route('upload.file')}}"><i class="fas fa-plus"></i>Create Images</a>
+                <a class="nav-link active" href="{{route('admin.customer')}}"><i class="fas fa-plus"></i>Lich thue nha</a>
                 <a class="nav-link active"><i class="fas fa-cog"></i>Settings</a>
             </div>
         </div>

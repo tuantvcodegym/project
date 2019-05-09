@@ -62,6 +62,7 @@
                 <a class="nav-link active" href="{{route('admin.store')}}"><i class="fas fa-plus"></i>Create</a>
                 <a class="nav-link active" href="{{route('category.store')}}"><i class="fas fa-plus"></i>Create Category</a>
                 <a class="nav-link active" href="{{route('upload.file')}}"><i class="fas fa-plus"></i>Create Images</a>
+                <a class="nav-link active" href="{{route('admin.customer')}}"><i class="fas fa-plus"></i>Lich thue nha</a>
                 <a class="nav-link active"><i class="fas fa-cog"></i>Settings</a>
             </div>
         </div>
@@ -89,6 +90,35 @@
                 </tbody>
             </table>
             {{ $list->links() }}
+        </div>
+        <div class="col-md-12">
+            <h4>Danh sách nhà đang cho thuê</h4>
+            <table class="table">
+                <thead class="thead-light">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($list as $key=>$value)
+                    @if($value->status == 'true')
+                    <tr>
+                        <th scope="row">{{ $value->id }}</th>
+                        <td>{{ $value->name }}</td>
+                        <td><img src="{{asset("storage/$value->image")}}" alt="" width="100px" height="50px"></td>
+                        <td><a href="{{ route('admin.edit', $value->id) }}" class="btn btn-primary">Sua</a></td>
+                        <td><a href="{{ route('admin.delete', $value->id) }}" class="btn btn-primary">Xoa</a></td>
+                        <td><a href="{{ route('admin.detail', $value->id) }}" class="btn btn-primary">detail</a></td>
+                    </tr>
+                    @endif
+                @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

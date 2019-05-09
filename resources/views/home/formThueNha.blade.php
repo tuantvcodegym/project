@@ -9,7 +9,7 @@
             @csrf
             <div class="input-1">
                 <p>Email</p>
-                <input type="email" placeholder="Email" class="input-2" name="email" required>
+                <input type="email" placeholder="Email" class="input-2" name="email" required value="{{ Auth::user()->email }}">
             </div>
             <div class="form-3">
                 <div>

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAttributeCustomerIdIntoProductsTable extends Migration
+class AddAtrributeRoleIntoUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddAttributeCustomerIdIntoProductsTable extends Migration
      */
     public function up()
     {
-        Schema::table('products', function (Blueprint $table) {
-            $table->integer('customer_id')->unsigned();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('role')->nullable()->after('phone');
         });
     }
 
@@ -25,7 +25,7 @@ class AddAttributeCustomerIdIntoProductsTable extends Migration
      */
     public function down()
     {
-        Schema::table('product', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }

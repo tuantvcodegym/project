@@ -29,9 +29,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function (){
    Route::get('delete/{id}', 'AdminController@delete')->name('admin.delete');
    Route::get('store', 'CategoryController@store')->name('category.store');
    Route::post('store', 'CategoryController@create')->name('category.create');
+   Route::get('detail/{id}', 'AdminController@detail')->name('admin.detail');
+   Route::get('lichDatThue', 'AdminController@customer')->name('admin.customer');
    // route add nhieu image
     Route::get('storeFile', 'ImagesController@storeFile')->name('upload.file');
     Route::post('storeFile', 'ImagesController@createFile');
+    //update Password
+    Route::get('getPass/{id}', 'GetloginController@getPass')->name('getPass');
+    Route::post('getPass/{id}', 'GetloginController@updatePass')->name('updatePass');
 });
 Route::group(['prefix' => 'login'], function (){
    Route::get('login', 'GetloginController@getLogin')->name('getLogin');
@@ -59,3 +64,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('searchCustomer', 'ProductController@searchCustomer')->name('searchCustomer');
 Route::get('getProfile/{id?}', 'CustomerController@getProfile')->name('getProfile');
 Route::get('cancelBathroom/{id}', 'CustomerController@cancelBathroom')->name('cancelBathroom');
+Route::get('profile/{id}', 'CustomerController@profile')->name('profile');
+Route::post('profile/{id}', 'CustomerController@updateProfile')->name('updateProfile');
+
+Route::get('comment/{id}', 'CommentController@comment')->name('comment');
+Route::get('getComment/{id}', 'CommentController@getComment')->name('getComment');
+
+Route::get('about', 'AdminController@aboutUs')->name('home.about');
