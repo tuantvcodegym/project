@@ -31,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
             // share du lieu cho nhieu tat ca cac view ma extends view master
             $view->with('cate',$cate);
         });
+        URL::forceScheme('https');
     }
 }
