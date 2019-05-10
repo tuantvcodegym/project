@@ -34,6 +34,8 @@ class ProductController extends Controller
         return view('product.detail', compact('product', 'images', 'comment'));
     }
     public function searchCustomer(Request $request){
+//        $product = Product::where([['address', 'like', '%'.$request->input('address').'%'], ['bathroom', $request->input('bathroom')], ['bedroom', $request->input('bedroom')],['price','>=', $request->input('price')] and ['price','<=', $request->input('price-2')]])->get();
+
         $product = Product::where([['address', 'like', '%'.$request->input('address').'%'], ['bathroom', $request->input('bathroom')], ['bedroom', $request->input('bedroom')],['price','<=', $request->input('price-2')],['price','>=', $request->input('price')]])->get();
         return view('product.customerSearch', compact('product'));
     }

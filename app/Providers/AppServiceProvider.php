@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Category;
 use App\Product;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -30,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
             // share du lieu cho nhieu tat ca cac view ma extends view master
             $view->with('cate',$cate);
         });
+        URL::forceScheme('https');
     }
 }

@@ -97,14 +97,7 @@
                         <div class="input-1">
                             <input type="text" placeholder="AnyWhere" class="input-2" name="address" required>
                         </div>
-                        <div class="form-3">
-                            <div>
-                                <p>CHECK-IN</p>
-                                <input type="date" class="date">
-                                to
-                                <input type="date" class="date">
-                            </div>
-                        </div>
+
                         <div class="input-1">
                             <p>Bathroom</p>
                             <input type="number" placeholder="Bathroom" class="input-2" name="bathroom" required>

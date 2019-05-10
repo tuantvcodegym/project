@@ -29,9 +29,9 @@
             </div>
             <div class="input-1">
                 <p>About Price</p>
-                <input type="text" placeholder="form" name="price" required>
+                <input type="number" placeholder="form" name="price" required>
                 to
-                <input type="text" placeholder="to" name="price-2" required>
+                <input type="number" placeholder="to" name="price-2" required>
             </div>
             <div class="button">
                 <button type="submit">Search</button>
