@@ -14,7 +14,7 @@ class CustomerController extends Controller
     public function getProfile($id){
         $user = User::find($id);
         $customer = Customer::where('user_id', $id)->get();
-        return view('product.detailCusTomer', compact('customer','date','user'));
+        return view('product.detailCusTomer', compact('customer','user'));
     }
     public function cancelBathroom($id){
         $product = Product::find($id);
